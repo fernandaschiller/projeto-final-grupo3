@@ -1,4 +1,4 @@
-package ada.selenium;
+package ada.selenium.stepDefinitions;
 
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;

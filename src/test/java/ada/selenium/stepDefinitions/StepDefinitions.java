@@ -1,4 +1,4 @@
-package ada.selenium;
+package ada.selenium.stepDefinitions;
 
 import io.cucumber.java.en.*;
 
