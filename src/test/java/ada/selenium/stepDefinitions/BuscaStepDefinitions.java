@@ -22,7 +22,7 @@ public class BuscaStepDefinitions {
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
 
