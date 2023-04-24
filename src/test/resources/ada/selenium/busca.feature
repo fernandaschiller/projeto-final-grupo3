@@ -1,3 +1,4 @@
+@busca_produtos
 Feature: Busca de produtos
 
   Como usuário, mesmo que não esteja logado,
@@ -8,7 +9,6 @@ Feature: Busca de produtos
   r2: Ao efetuar busca de produto, deve redirecionar para uma tela de resultados da busca realizada (na mesma guia)
   r3: Na tela do resultado da busca deve informar a quantidade de produtos retornados e deve ser possível realizar filtros dos produtos
 
-  @HG3R1
   Scenario: Validar presença da caixa de pesquisa
     Given que o usuário acesse a página home 'https://www.saraiva.com.br/'
     Then deve exibir caixa de pesquisa
@@ -60,6 +60,3 @@ Feature: Busca de produtos
     When usuário clicar na caixa de pesquisa
     And usuário digitar 'xxxx1234' na caixa de pesquisa mas não apertar enter
     Then deve aparecer a mensagem 'SEM SUGESTÕES'
-
-
-
