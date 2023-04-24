@@ -39,16 +39,6 @@ Feature: Busca de produtos
     And deve ser possível verificar a quantidade de produtos retornados, no canto superior direito da tela
     And a opção de filtro deve estar disponível
 
-  Scenario: Validar ordenação da página de resultados por menor preço
-    #Given que o usuário está na página de resultados da pesquisa
-    #When o usuário selecionar a ordenação "Preço: Menor preço"
-    #Then a lista de resultados deve ser reordenada por preço, do menor para o maior
-
-  Scenario: Validar ordenação da página de resultados por maior preço
-    #Given que o usuário está na página de resultados da pesquisa
-    #When o usuário selecionar a ordenação "Preço: Maior preço"
-    #Then a lista de resultados deve ser reordenada por preço, do maior para o menor
-
   Scenario: Validar busca de produto não encontrado
     Given que o usuário acesse a página home 'https://www.saraiva.com.br/'
     When usuário clicar na caixa de pesquisa
