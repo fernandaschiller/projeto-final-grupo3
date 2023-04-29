@@ -99,8 +99,10 @@ public class FiltroStepDefinitions {
 
     @Then("deve redirecionar para a pagina de produtos da categoria '(.+)'$")
     public void deveRedirecionarParaAPaginaDeProdutosDaCategoriaLivros(String categoria) {
-        String categoriaExibida = driver.findElement(By.cssSelector("[class^=\"vtex-search-result-3-x-galleryTitle--layout t-heading-1\"]")).getAttribute("textContent");
-        Assertions.assertEquals(categoria, categoriaExibida);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement categoriaExibida = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div/div[1]/div/div[4]/div/div/section/div[2]/div/div[1]/section/div/div[1]/div/div/div[1]/h1")));
+        String nomeDaCategoria = categoriaExibida.getAttribute("textContent");
+        Assertions.assertEquals(categoria, nomeDaCategoria);
     }
 
     @When("passar o mouse sobre a categoria Livros")
@@ -175,7 +177,8 @@ public class FiltroStepDefinitions {
     }
 
     @Then("deve exibir as opcoes de ordenar resultados")
-    public void deveExibirAsOpcoesDeOrdenarResultados(){
+    public void deveExibirAsOpcoesDeOrdenarResultados() throws InterruptedException {
+        Thread.sleep(3000);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -263,7 +266,8 @@ public class FiltroStepDefinitions {
     }
 
     @When("selecionar criterio de ordenacao por maior preco")
-    public void selecionarCriterioDeOrdenacaoPorMaiorPreco() {
+    public void selecionarCriterioDeOrdenacaoPorMaiorPreco() throws InterruptedException {
+        Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement botaoOrdenar = driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div[4]/div/div/section/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div/div/div/div[2]"));
         Actions acao = new Actions(driver);
@@ -289,7 +293,8 @@ public class FiltroStepDefinitions {
     }
 
     @When("selecionar criterio de ordenacao por A a Z")
-    public void selecionarCriterioDeOrdenacaoPorAAZ() {
+    public void selecionarCriterioDeOrdenacaoPorAAZ() throws InterruptedException {
+        Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement botaoOrdenar = driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div[4]/div/div/section/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div/div/div/div[2]"));
         Actions acao = new Actions(driver);
@@ -316,7 +321,8 @@ public class FiltroStepDefinitions {
     }
 
     @When("selecionar criterio de ordenacao por Z a A")
-    public void selecionarCriterioDeOrdenacaoPorZAA() {
+    public void selecionarCriterioDeOrdenacaoPorZAA() throws InterruptedException {
+        Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement botaoOrdenar = driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/div[4]/div/div/section/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div/div/div/div[2]"));
         Actions acao = new Actions(driver);
