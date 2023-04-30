@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Hooks {
     private static WebDriver driverChrome;
-
     @Before
     public void setup(){
         ChromeOptions options = new ChromeOptions();
