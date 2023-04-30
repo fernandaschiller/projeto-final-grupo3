@@ -17,20 +17,19 @@ import java.time.Duration;
 public class BuscaStepDefinitions {
     WebDriver driver;
     WebDriverWait wait;
+    @Before()
+    public void setup() {
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+    }
 
-//    @Before()
-//    public void setup() {
-//        System.setProperty("webdriver.http.factory", "jdk-http-client");
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        driver.manage().window().maximize();
-//    }
-
-//    @After()
-//    public void closeBrowser() {
-//        driver.quit();
-//    }
+    @After()
+    public void closeBrowser() {
+        driver.quit();
+    }
 
     @Given("^que o usuário acesse a página home '(.+)'$")
     public void que_usuario_acessa_pagina_home(String url) {
