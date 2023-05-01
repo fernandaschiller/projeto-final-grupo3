@@ -165,4 +165,3 @@ Feature: HG3R2 - Filtro por categorias
     When selecionar criterio de ordenacao por Z a A
     Then deve ordenar resultados conforme ordem alfabetica decrescente
 
-

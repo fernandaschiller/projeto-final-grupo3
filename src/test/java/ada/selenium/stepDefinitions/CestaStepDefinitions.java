@@ -51,7 +51,7 @@ public class CestaStepDefinitions {
         assertTrue(meuDriver.getTitle().contains(termoDeBusca));
     }
 
-    @Then("a cesta exibe informações")
+    @Then("a cesta exibe informaï¿½ï¿½es")
     public void infos() throws InterruptedException {
         CestaPage cestaPage = new CestaPage(meuDriver);
         Thread.sleep(5000);
@@ -70,7 +70,7 @@ public class CestaStepDefinitions {
         assertEquals(2, cont);
     }
 
-    @Then("é possível deletar um produto")
+    @Then("ï¿½ possï¿½vel deletar um produto")
     public void deletar() throws InterruptedException {
         CestaPage cestaPage = new CestaPage(meuDriver);
         String numeroDeProdutos = cestaPage.colocaProdutosNaCesta(termoDeBusca);
