@@ -1,6 +1,6 @@
 # Projeto-final-grupo3
 
-# Hello, we formed a team from the Ada Tech test automation course and chose the website (https://www.saraiva.com.br/) to do the tests.💻
+# Hello! We formed a team from the Ada Tech test automation course and chose the website (https://www.saraiva.com.br/) to do the tests.
 
 
 # Evaluation Automated Tests with Selenium Webdriver
