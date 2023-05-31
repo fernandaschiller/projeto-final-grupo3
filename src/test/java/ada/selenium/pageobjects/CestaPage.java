@@ -5,16 +5,16 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 
 public class CestaPage {
-
-    private final WebDriver driver;
-    WebDriverWait wait;
-
+    WebDriver driver;
     String botaoComprar1 = "//*[@id=\"gallery-layout-container\"]/div[1]/section/a/article/div[4]/button";
     String botaoComprar2 ="//*[@id=\"gallery-layout-container\"]/div[2]/section/a/article/div[4]/button";
     String produtos = ".vtex-minicart-2-x-minicartProductListContainer";
@@ -28,41 +28,38 @@ public class CestaPage {
     WebElement caixaDePesquisa ;
 
 
-    public CestaPage(WebDriver driver) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+    public CestaPage(WebDriver driver)  {
         this.driver = driver;
     }
 
-    public void fazerPesquisa (WebDriver driver, String termoBusca) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        caixaDePesquisa = driver.findElement(By.cssSelector(".vtex-styleguide-9-x-input"));
-        wait.until(ExpectedConditions.elementToBeClickable(caixaDePesquisa));
+    public void fazerPesquisa (String termoBusca) {
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        caixaDePesquisa =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".vtex-styleguide-9-x-input")));
         caixaDePesquisa.sendKeys(termoBusca.toLowerCase(Locale.ROOT));
         caixaDePesquisa.sendKeys(Keys.RETURN);
     }
 
-    public String colocaProdutosNaCesta(String termoDeBusca) throws InterruptedException {
-        Thread.sleep(4000);
-        botoesDeComprar = driver.findElement(By.xpath(botaoComprar1));
+    public String colocaProdutosNaCesta() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+        botoesDeComprar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath((botaoComprar1))));
+//        botoesDeComprar = driver.findElement(By.xpath(botaoComprar1));
         botoesDeComprar.click();
         botoesDeComprar = driver.findElement(By.xpath(botaoComprar2));
         botoesDeComprar.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         numeroDeProdutosNaCesta = driver.findElement(By.cssSelector(quantidadeDeProdutos));
 
         return numeroDeProdutosNaCesta.getText();
     }
 
-    public WebElement retornaInfoProdutos() throws InterruptedException {
-        Thread.sleep(3000);
+    public WebElement retornaInfoProdutos() {
         produtosNaCesta = driver.findElement(By.cssSelector(produtos));
-        Thread.sleep(3000);
-
         return produtosNaCesta;
     }
 
-    public void deletaProdutosNaCesta() throws InterruptedException {
-        Thread.sleep(5000);
+    public void deletaProdutosNaCesta() {
         deletarNoCarrinho = driver.findElement(By.cssSelector(botaoDeletar));
         deletarNoCarrinho.click();
     }

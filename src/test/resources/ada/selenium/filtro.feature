@@ -7,7 +7,6 @@ Feature: HG3R2 - Filtro por categorias
   r1: Ao selecionar uma categoria, deve redirecionar (na mesma aba) para produtos da categoria selecionada
   r2: Deve ser possível ordenar resultados
 
-
   @Regression
   @Smoke
   @Categorias

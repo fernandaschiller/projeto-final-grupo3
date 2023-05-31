@@ -20,10 +20,14 @@ import java.util.List;
 public class DetalhesStepDefinitions {
     WebDriver driver = Hooks.getDriver();
 
+    public DetalhesStepDefinitions() throws InterruptedException {
+    }
+
     @Given("Que estou na página de um produto escolhido")
     public void que_usuario_acessa_pagina_produto() {
         driver.get("https://www.saraiva.com.br/seja-foda-/p");
     }
+
     @Then("a imagem do produto deve ser mostrada")
     public void deve_mostrar_a_imagem_do_produto_corretamente() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -49,7 +53,7 @@ public class DetalhesStepDefinitions {
     }
 
     @Then("devem ser apresentadas as especificações do produto")
-    public void deve_mostrar_as_especigicações_do_produto_escolhido() {
+    public void deve_mostrar_as_especificacoes_do_produto_escolhido() {
         WebElement especificacaoProduto = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".vtex-flex-layout-0-x-flexColChild.pb0:nth-child(2)")));
         Assertions.assertTrue(especificacaoProduto.isDisplayed(), "As especificações do produto não está sendo exibidas corretamente");
     }
