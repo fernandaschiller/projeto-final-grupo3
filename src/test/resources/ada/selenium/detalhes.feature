@@ -1,6 +1,6 @@
+
 @HG3R3
 Feature: HG3R3 - Detalhes de um produto
-
 HG3R3 - Detalhes de um produto
 Como usuário, mesmo que não esteja logado
 Quero ver detalhes de um produto para ver mais informações do produto.
@@ -14,7 +14,7 @@ r2: Deve exibir no final da pagina sugestões de produtos similares
     Then a imagem do produto deve ser mostrada
 
 #  @Smoke
-#  Scenario: Validar se os produtos relacionaods estão sendo exibidos corretamente
+#  Scenario: Validar se os produtos relacionados estão sendo exibidos corretamente
 #    Given Que estou na página de um produto escolhido
 #    When Estiver no fim da página
 #    Then devem ser apresentados produtos relacionados
